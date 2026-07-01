@@ -24,9 +24,7 @@
       --muted: #d8bfff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -117,10 +115,12 @@
       gap: 13px;
     }
 
-    .btn {
+    .btn,
+    button.btn {
       display: block;
       width: 100%;
       padding: 16px 18px;
+      text-align: center;
       text-decoration: none;
       color: #fff;
       font-size: 17px;
@@ -132,6 +132,8 @@
         0 10px 22px rgba(0, 0, 0, 0.28),
         0 0 20px rgba(255, 43, 214, 0.25);
       transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .btn:nth-child(even) {
@@ -148,6 +150,39 @@
       box-shadow:
         0 14px 28px rgba(0, 0, 0, 0.35),
         0 0 28px rgba(255, 43, 214, 0.32);
+    }
+
+    .phone-panel {
+      display: none;
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px rgba(25, 216, 255, 0.14);
+    }
+
+    .phone-panel.active {
+      display: grid;
+      gap: 10px;
+    }
+
+    .phone-choice {
+      display: block;
+      padding: 14px;
+      border-radius: 18px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .phone-choice small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 600;
     }
 
     .section {
@@ -172,6 +207,52 @@
       color: var(--soft);
       font-size: 15.5px;
       line-height: 1.7;
+    }
+
+    .review-faces {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .face-btn {
+      min-height: 106px;
+      padding: 12px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255, 43, 214, 0.92), rgba(139, 44, 255, 0.90));
+      color: #fff;
+      font-size: 36px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.28),
+        0 0 18px rgba(255, 43, 214, 0.20);
+      transition: transform 0.18s ease, filter 0.18s ease;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .face-btn:nth-child(2) {
+      background: linear-gradient(135deg, rgba(25, 216, 255, 0.92), rgba(139, 44, 255, 0.90));
+    }
+
+    .face-btn:nth-child(3) {
+      background: linear-gradient(135deg, rgba(139, 44, 255, 0.94), rgba(255, 43, 214, 0.78));
+    }
+
+    .face-btn span {
+      display: block;
+      margin-top: 7px;
+      font-size: 12px;
+      line-height: 1.25;
+      letter-spacing: 0.2px;
+    }
+
+    .face-btn:hover,
+    .face-btn:active {
+      transform: translateY(-2px) scale(1.03);
+      filter: brightness(1.08);
     }
 
     .teacher {
@@ -275,13 +356,8 @@
     }
 
     @media (min-width: 680px) {
-      .teacher {
-        grid-template-columns: 260px 1fr;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
+      .teacher { grid-template-columns: 260px 1fr; }
+      h1 { font-size: 42px; }
     }
   </style>
 </head>
@@ -300,13 +376,55 @@
       <div class="tagline">Place for dance lovers</div>
 
       <nav class="buttons" aria-label="Βασικά κουμπιά επικοινωνίας">
-        <a class="btn" href="tel:+306979596027">Καλέστε τώρα</a>
+        <button class="btn" type="button" onclick="togglePhones()">Καλέστε τώρα</button>
+
+        <div id="phonePanel" class="phone-panel">
+          <a class="phone-choice" href="tel:+306979596027">
+            697 959 6027
+            <small>Κύριο τηλέφωνο</small>
+          </a>
+
+          <a class="phone-choice" href="tel:+302611812802">
+            2611 812 802
+            <small>Σταθερό τηλέφωνο</small>
+          </a>
+
+          <a class="phone-choice" href="tel:+302611813790">
+            2611 813 790
+            <small>Σταθερό τηλέφωνο</small>
+          </a>
+        </div>
+
         <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Flashdance%20Patras%20Ανθείας%20131%20Πάτρα">Δείτε τη σχολή στον χάρτη</a>
         <a class="btn" href="https://www.instagram.com/flashdancepatras/">Visit Instagram</a>
         <a class="btn" href="https://www.facebook.com/flashdancepatras/">Visit Facebook</a>
         <a class="btn" href="mailto:flashdancepatras@gmail.com">Στείλτε email</a>
-        <a class="btn" href="feedback.html">Leave a Google Review</a>
       </nav>
+    </section>
+
+    <section class="section">
+      <h2>Πώς ήταν η εμπειρία σας;</h2>
+      <p>
+        Επιλέξτε πώς νιώσατε με την εμπειρία σας στη Flashdance Patras.
+        Αν όλα ήταν υπέροχα, μπορείτε να αφήσετε δημόσια αξιολόγηση στο Google.
+      </p>
+
+      <div class="review-faces">
+        <button class="face-btn" type="button" onclick="goToGoogleReview()">
+          😊
+          <span>Υπέροχη εμπειρία</span>
+        </button>
+
+        <button class="face-btn" type="button" onclick="goToFeedback('neutral')">
+          😐
+          <span>Μέτρια εμπειρία</span>
+        </button>
+
+        <button class="face-btn" type="button" onclick="goToFeedback('bad')">
+          😔
+          <span>Θέλω να αφήσω σχόλιο</span>
+        </button>
+      </div>
     </section>
 
     <section class="section">
@@ -352,36 +470,21 @@
         <div class="video-card">
           <h3>Flashdance Patras Aladdin Oriental Fusion Show</h3>
           <div class="video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/a9ASc56Ih68"
-              title="Flashdance Patras Aladdin Oriental Fusion Show"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/a9ASc56Ih68" title="Flashdance Patras Aladdin Oriental Fusion Show" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="video-card">
           <h3>FlashDance Patras | 1st Place Oriental Teams</h3>
           <div class="video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/l3BueYytzuo"
-              title="FlashDance Patras 1st Place Oriental Teams"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/l3BueYytzuo" title="FlashDance Patras 1st Place Oriental Teams" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="video-card">
           <h3>Aladdin Belly Dance Choreography</h3>
           <div class="video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/13M_7l4hpJ4"
-              title="Aladdin Belly Dance Choreography"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/13M_7l4hpJ4" title="Aladdin Belly Dance Choreography" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -409,5 +512,21 @@
       <a href="https://www.instagram.com/lazaros_jewelart">lazaros_jewelart</a>
     </footer>
   </main>
+
+  <script>
+    const googleReviewUrl = "https://search.google.com/local/writereview?placeid=ChIJxxkxJng3XhMRK9seRqISEx0";
+
+    function togglePhones() {
+      document.getElementById("phonePanel").classList.toggle("active");
+    }
+
+    function goToGoogleReview() {
+      window.location.href = googleReviewUrl;
+    }
+
+    function goToFeedback(type) {
+      window.location.href = "feedback.html?type=" + encodeURIComponent(type);
+    }
+  </script>
 </body>
 </html>
