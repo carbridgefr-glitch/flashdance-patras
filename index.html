@@ -1,1 +1,413 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Flashdance Patras | Dance Academy</title>
+  <meta name="description" content="Flashdance Patras - Dance Academy στην Πάτρα. Latin, Oriental, Hip Hop, Commercial, K-Pop, shows και χορευτικές παραστάσεις." />
+
+  <meta property="og:title" content="Flashdance Patras | Dance Academy" />
+  <meta property="og:description" content="Place for dance lovers! Ανακαλύψτε τη σχολή, τα μαθήματα, τα social και τις παραστάσεις." />
+  <meta property="og:image" content="logo%20flash%20danse.png" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+      --pink: #ff2bd6;
+      --blue: #19d8ff;
+      --purple: #8b2cff;
+      --dark: #070011;
+      --card: rgba(15, 5, 35, 0.78);
+      --white: #ffffff;
+      --soft: #f7eaff;
+      --muted: #d8bfff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(7, 0, 17, 0.78), rgba(7, 0, 17, 0.94)),
+        url("back%20round.jpg") center / cover fixed no-repeat;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 43, 214, 0.30), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(25, 216, 255, 0.28), transparent 32%),
+        radial-gradient(circle at 50% 90%, rgba(139, 44, 255, 0.25), transparent 35%);
+      z-index: -1;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 22px 16px 34px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 26px 16px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(15, 5, 35, 0.82), rgba(45, 0, 60, 0.60));
+      box-shadow:
+        0 0 28px rgba(255, 43, 214, 0.24),
+        0 0 42px rgba(25, 216, 255, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      width: 168px;
+      max-width: 72%;
+      border-radius: 22px;
+      margin-bottom: 14px;
+      box-shadow:
+        0 0 28px rgba(255, 43, 214, 0.55),
+        0 0 26px rgba(25, 216, 255, 0.35);
+    }
+
+    h1 {
+      margin: 8px 0 8px;
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      text-shadow:
+        0 0 12px rgba(255, 43, 214, 0.8),
+        0 0 22px rgba(25, 216, 255, 0.45);
+    }
+
+    .subtitle {
+      margin: 0 auto 14px;
+      color: var(--soft);
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 560px;
+    }
+
+    .tagline {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 43, 214, 0.13);
+      border: 1px solid rgba(255, 43, 214, 0.45);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      box-shadow: 0 0 18px rgba(255, 43, 214, 0.24);
+    }
+
+    .buttons {
+      margin-top: 22px;
+      display: grid;
+      gap: 13px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      border-radius: 22px 8px 22px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, rgba(255, 43, 214, 0.95), rgba(139, 44, 255, 0.92));
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.28),
+        0 0 20px rgba(255, 43, 214, 0.25);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .btn:nth-child(even) {
+      background: linear-gradient(135deg, rgba(25, 216, 255, 0.95), rgba(139, 44, 255, 0.94));
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.28),
+        0 0 20px rgba(25, 216, 255, 0.22);
+    }
+
+    .btn:hover,
+    .btn:active {
+      transform: translateY(-2px) scale(1.01);
+      filter: brightness(1.08);
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.35),
+        0 0 28px rgba(255, 43, 214, 0.32);
+    }
+
+    .section {
+      margin-top: 18px;
+      padding: 22px 18px;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 0 24px rgba(25, 216, 255, 0.10);
+      backdrop-filter: blur(8px);
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 23px;
+      color: #fff;
+      text-shadow: 0 0 14px rgba(255, 43, 214, 0.55);
+    }
+
+    .section p {
+      margin: 0;
+      color: var(--soft);
+      font-size: 15.5px;
+      line-height: 1.7;
+    }
+
+    .teacher {
+      display: grid;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .teacher img {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 28px;
+      border: 2px solid rgba(255, 43, 214, 0.42);
+      box-shadow:
+        0 0 26px rgba(255, 43, 214, 0.28),
+        0 0 28px rgba(25, 216, 255, 0.18);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(25, 216, 255, 0.13);
+      border: 1px solid rgba(25, 216, 255, 0.36);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .videos {
+      display: grid;
+      gap: 16px;
+    }
+
+    .video-card {
+      padding: 12px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .video-card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(25, 216, 255, 0.18);
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .contact-list a {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      margin: 24px auto 0;
+      padding: 16px 10px 8px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+    }
+
+    @media (min-width: 680px) {
+      .teacher {
+        grid-template-columns: 260px 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <img class="logo" src="logo%20flash%20danse.png" alt="Flashdance Patras Logo" />
+
+      <h1>Flashdance Patras</h1>
+      <p class="subtitle">
+        Dance Academy στην Πάτρα για όσους αγαπούν τον χορό, την έκφραση,
+        τη μουσική και τη σκηνική ενέργεια.
+      </p>
+
+      <div class="tagline">Place for dance lovers</div>
+
+      <nav class="buttons" aria-label="Βασικά κουμπιά επικοινωνίας">
+        <a class="btn" href="tel:+306979596027">Καλέστε τώρα</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Flashdance%20Patras%20Ανθείας%20131%20Πάτρα">Δείτε τη σχολή στον χάρτη</a>
+        <a class="btn" href="https://www.instagram.com/flashdancepatras/">Visit Instagram</a>
+        <a class="btn" href="https://www.facebook.com/flashdancepatras/">Visit Facebook</a>
+        <a class="btn" href="mailto:flashdancepatras@gmail.com">Στείλτε email</a>
+        <a class="btn" href="feedback.html">Leave a Google Review</a>
+      </nav>
+    </section>
+
+    <section class="section">
+      <h2>Η σχολή</h2>
+      <p>
+        Η Flashdance Patras είναι ένας ζωντανός χώρος χορού στην Πάτρα,
+        αφιερωμένος στην κίνηση, τη δημιουργικότητα και τη σκηνική παρουσία.
+        Με τμήματα για παιδιά, εφήβους και ενήλικες, η σχολή προσφέρει ένα
+        δυναμικό περιβάλλον για όσους θέλουν να μάθουν, να εκφραστούν και να
+        ζήσουν την εμπειρία του χορού.
+      </p>
+
+      <div class="chips">
+        <span class="chip">Latin</span>
+        <span class="chip">Oriental</span>
+        <span class="chip">Hip Hop</span>
+        <span class="chip">Commercial</span>
+        <span class="chip">K-Pop</span>
+        <span class="chip">Shows</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="teacher">
+        <img src="tania.jpg" alt="Τάνια Μιχαλιού - Flashdance Patras" />
+
+        <div>
+          <h2>Τάνια Μιχαλιού</h2>
+          <p>
+            Η Τάνια Μιχαλιού είναι δασκάλα χορού, χορεύτρια και χορογράφος,
+            ιδρύτρια της Flashdance Patras. Με παρουσία στον χώρο του χορού,
+            σε παραστάσεις, χορογραφίες και dance events, μεταφέρει στους
+            μαθητές της τεχνική, έκφραση, ρυθμό και αγάπη για τη σκηνή.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Performances & Videos</h2>
+
+      <div class="videos">
+        <div class="video-card">
+          <h3>Flashdance Patras Aladdin Oriental Fusion Show</h3>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/a9ASc56Ih68"
+              title="Flashdance Patras Aladdin Oriental Fusion Show"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <h3>FlashDance Patras | 1st Place Oriental Teams</h3>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/l3BueYytzuo"
+              title="FlashDance Patras 1st Place Oriental Teams"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <h3>Aladdin Belly Dance Choreography</h3>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/13M_7l4hpJ4"
+              title="Aladdin Belly Dance Choreography"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Επικοινωνία</h2>
+      <p>
+        Επικοινωνήστε με τη Flashdance Patras για πληροφορίες σχετικά με
+        τμήματα, εγγραφές, μαθήματα και χορευτικές εμφανίσεις.
+      </p>
+
+      <div class="contact-list">
+        <div>Κύριο τηλέφωνο: <a href="tel:+306979596027">697 959 6027</a></div>
+        <div>Σταθερό: <a href="tel:+302611812802">2611 812 802</a></div>
+        <div>Σταθερό: <a href="tel:+302611813790">2611 813 790</a></div>
+        <div>Email: <a href="mailto:flashdancepatras@gmail.com">flashdancepatras@gmail.com</a></div>
+        <div>Διεύθυνση: Ανθείας 131, Πάτρα</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Powered by NFC Brelok • Jewel Art<br />
+      Instagram:
+      <a href="https://www.instagram.com/lazaros_jewelart">lazaros_jewelart</a>
+    </footer>
+  </main>
+</body>
+</html>
