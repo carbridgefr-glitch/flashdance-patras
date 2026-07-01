@@ -255,13 +255,19 @@
       filter: brightness(1.08);
     }
 
-    .teacher {
+    .teacher-layout {
+      display: grid;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .teacher-profile {
       display: grid;
       gap: 16px;
       align-items: center;
     }
 
-    .teacher img {
+    .teacher-profile img {
       width: 100%;
       max-width: 260px;
       margin: 0 auto;
@@ -271,6 +277,39 @@
       box-shadow:
         0 0 26px rgba(255, 43, 214, 0.28),
         0 0 28px rgba(25, 216, 255, 0.18);
+    }
+
+    .teacher-video-card {
+      padding: 12px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow:
+        0 0 24px rgba(255, 43, 214, 0.16),
+        0 0 24px rgba(25, 216, 255, 0.12);
+    }
+
+    .teacher-video-card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .teacher-video {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      background: #000;
+      box-shadow: 0 0 20px rgba(25, 216, 255, 0.18);
+    }
+
+    .video-note {
+      margin-top: 10px !important;
+      text-align: center;
+      font-size: 13px !important;
+      color: var(--muted) !important;
+      line-height: 1.5 !important;
     }
 
     .chips {
@@ -356,8 +395,17 @@
     }
 
     @media (min-width: 680px) {
-      .teacher { grid-template-columns: 260px 1fr; }
-      h1 { font-size: 42px; }
+      .teacher-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .teacher-profile {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
     }
   </style>
 </head>
@@ -448,16 +496,35 @@
     </section>
 
     <section class="section">
-      <div class="teacher">
-        <img src="tania.jpg" alt="Τάνια Μιχαλιού - Flashdance Patras" />
+      <div class="teacher-layout">
+        <div class="teacher-profile">
+          <img src="tania.jpg" alt="Τάνια Μιχαλιού - Flashdance Patras" />
 
-        <div>
-          <h2>Τάνια Μιχαλιού</h2>
-          <p>
-            Η Τάνια Μιχαλιού είναι δασκάλα χορού, χορεύτρια και χορογράφος,
-            ιδρύτρια της Flashdance Patras. Με παρουσία στον χώρο του χορού,
-            σε παραστάσεις, χορογραφίες και dance events, μεταφέρει στους
-            μαθητές της τεχνική, έκφραση, ρυθμό και αγάπη για τη σκηνή.
+          <div>
+            <h2>Τάνια Μιχαλιού</h2>
+            <p>
+              Η Τάνια Μιχαλιού είναι δασκάλα χορού, χορεύτρια και χορογράφος,
+              ιδρύτρια της Flashdance Patras. Με παρουσία στον χώρο του χορού,
+              σε παραστάσεις, χορογραφίες και dance events, μεταφέρει στους
+              μαθητές της τεχνική, έκφραση, ρυθμό και αγάπη για τη σκηνή.
+            </p>
+          </div>
+        </div>
+
+        <div class="teacher-video-card">
+          <h3>Dance Moment με την Τάνια</h3>
+
+          <video
+            class="teacher-video"
+            src="video%20tania%20%26%20zhivo%20yankov.mp4"
+            controls
+            playsinline
+            preload="metadata">
+            Το πρόγραμμα περιήγησής σας δεν υποστηρίζει την αναπαραγωγή βίντεο.
+          </video>
+
+          <p class="video-note">
+            Ένα μικρό δείγμα από τη χορευτική παρουσία και τη δουλειά της δασκάλας.
           </p>
         </div>
       </div>
